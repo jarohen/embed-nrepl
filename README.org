@@ -1,0 +1,55 @@
+* Embed-nREPL
+
+'Embed-nREPL' is a micro-library to start an nREPL server with my
+opinionated defaults. I've found myself writing this a lot, so it's
+time to make it a library!
+
+What are my opinions, I hear you say? Not much.
+
+- I include the default [[https://github.com/clojure-emacs/cider-nrepl][cider-nrepl]] middleware, at the latest stable
+  version.
+- I include the [[https://github.com/clojure-emacs/refactor-nrepl/][refactor-nrepl]] middleware, at the latest stable
+  version.
+
+You can override either of these versions by including an explicit
+override in your project.clj, or ~/.lein/profiles.clj
+
+** Installation
+
+Embed-nREPL is on Clojars:
+
+#+BEGIN_SRC clojure
+  [jarohen/embed-nrepl "0.1.0"]
+#+END_SRC
+
+Getting started:
+
+#+BEGIN_SRC clojure
+  (require '[nrepl.embed :as nrepl])
+
+  ;; pop this somewhere, probably in your '-main'
+  (nrepl/start-nrepl! {:bind "127.0.0.1"
+                       :port 7888})
+
+  ;; if you ever need to stop the running nREPL server:
+  (nrepl/stop-nrepl!)
+#+END_SRC
+
+*** Notes
+
+=:bind= is optional, and defaults to ="127.0.0.1"= - set it to
+="0.0.0.0"= to listen on all addresses.
+
+=start-nrepl!= is idempotent - if there's already a server started, it
+won't start another.
+
+** That's all, folks!
+
+Any suggestions/bugs/etc - please report them in the traditional
+Github manner - cheers! :)
+
+** License
+
+Copyright © 2015 James Henderson
+
+Distributed under the Eclipse Public License, the same as Clojure.
