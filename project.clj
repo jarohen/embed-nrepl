@@ -1,4 +1,4 @@
-(defproject jarohen/embed-nrepl "0.1.0-SNAPSHOT"
+(defproject jarohen/embed-nrepl "0.1.0"
   :description "A micro-library to start up an nREPL server with my opinionated defaults"
   :url "https://github.com/james-henderson/embed-nrepl"
 
