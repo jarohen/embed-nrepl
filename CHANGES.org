@@ -1,5 +1,9 @@
 * Changelog
 ** 0.1.x
+*** 0.1.1
+
+Added bREPL support, via Weasel - no breaking changes.
+
 *** 0.1.0
 
 Initial release

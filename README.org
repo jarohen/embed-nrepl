@@ -10,8 +10,10 @@ What are my opinions, I hear you say? Not much.
   version.
 - I include the [[https://github.com/clojure-emacs/refactor-nrepl/][refactor-nrepl]] middleware, at the latest stable
   version.
+- If piggieback is on the classpath, I include its wrap-cljs-repl
+  middleware.
 
-You can override either of these versions by including an explicit
+You can override any of these versions by including an explicit
 override in your project.clj, or ~/.lein/profiles.clj
 
 ** Installation
@@ -42,6 +44,48 @@ Getting started:
 
 =start-nrepl!= is idempotent - if there's already a server started, it
 won't start another.
+
+** CLJS Browser REPL
+
+nREPL embed's bREPL support is based atop [[https://github.com/tomjakubowski/weasel][Weasel]] - thanks Tom
+Jakubowski!
+
+To open up a CLJS browser REPL, you'll need to include the following
+in your project.clj.
+
+#+BEGIN_SRC clojure
+  ;; These can go in your `:dev` profile, if you don't want them to be
+  ;; included as JAR dependencies.
+
+  [com.cemerick/piggieback "0.2.1"]
+  [weasel "0.7.0"]
+#+END_SRC
+
+Then, in your CLJS, include the following to connect to the bREPL on
+the default port:
+
+#+BEGIN_SRC clojurescript
+  (ns myapp.main
+    (:require [nrepl.embed :refer [connect-brepl!]]))
+
+  (connect-brepl!)
+
+  ;; to customise host/port:
+
+  (connect-brepl! {:host "127.0.0.1"
+                   :port 9001})
+#+END_SRC
+
+Finally, once you've connected to the server-side REPL, eval:
+
+#+BEGIN_SRC clojure
+  (nrepl.embed/->brepl)
+
+  ;; again, to customise the host/port:
+
+  (nrepl.embed/->brepl {:host "127.0.0.1"
+                        :port 9001})
+#+END_SRC
 
 ** That's all, folks!
 
