@@ -21,7 +21,7 @@ override in your project.clj, or ~/.lein/profiles.clj
 Embed-nREPL is on Clojars:
 
 #+BEGIN_SRC clojure
-  [jarohen/embed-nrepl "0.1.0"]
+  [jarohen/embed-nrepl "0.1.2"]
 #+END_SRC
 
 Getting started:
@@ -31,7 +31,9 @@ Getting started:
 
   ;; pop this somewhere, probably in your '-main'
   (nrepl/start-nrepl! {:bind "127.0.0.1"
-                       :port 7888})
+                       :port 7888
+                       :cljs-opts {...}
+                       :weasel-opts {...}})
 
   ;; if you ever need to stop the running nREPL server:
   (nrepl/stop-nrepl!)
@@ -41,6 +43,9 @@ Getting started:
 
 =:bind= is optional, and defaults to ="127.0.0.1"= - set it to
 ="0.0.0.0"= to listen on all addresses.
+
+=:cljs-opts= and =:weasel-opts= are optional - pass any options here
+that you want passed to Piggieback and Weasel respectively
 
 =start-nrepl!= is idempotent - if there's already a server started, it
 won't start another.
