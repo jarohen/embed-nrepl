@@ -29,6 +29,11 @@
                                                      (map resolve)
                                                      (remove nil?)
                                                      (apply nrepl/default-handler)))]
+
+        (try
+          (spit ".nrepl-port" port)
+          (catch Exception _))
+
         (swap! !repl #(assoc %
                         :server server
                         :cljs-opts cljs-opts
