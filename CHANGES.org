@@ -1,5 +1,13 @@
 * Changelog
 ** 0.1.x
+*** 0.1.3
+
+Writing out the nREPL port to .nrepl-port - thanks @cichli!
+
+*** 0.1.2
+
+Adding =:cljs-opts= and =:weasel-opts= options
+
 *** 0.1.1
 
 Added bREPL support, via Weasel - no breaking changes.

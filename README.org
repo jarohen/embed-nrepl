@@ -21,7 +21,7 @@ override in your project.clj, or ~/.lein/profiles.clj
 Embed-nREPL is on Clojars:
 
 #+BEGIN_SRC clojure
-  [jarohen/embed-nrepl "0.1.2"]
+  [jarohen/embed-nrepl "0.1.3"]
 #+END_SRC
 
 Getting started:
