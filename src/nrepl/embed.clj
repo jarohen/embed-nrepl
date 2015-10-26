@@ -6,6 +6,7 @@
             [cider.nrepl :refer [cider-middleware]]
             [refactor-nrepl.middleware]
 
+            [clojure.java.io :as io]
             [clojure.tools.logging :as log]))
 
 (defonce ^:private !repl (atom nil))
@@ -32,6 +33,12 @@
 
         (try
           (spit ".nrepl-port" port)
+
+          (doto (Runtime/getRuntime)
+            (.addShutdownHook (Thread. (fn []
+                                         (try
+                                           (io/delete-file (io/file ".nrepl-port"))
+                                           (catch Exception _))))))
           (catch Exception _))
 
         (swap! !repl #(assoc %
