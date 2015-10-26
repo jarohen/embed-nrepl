@@ -50,7 +50,8 @@
         server)
 
       (catch Exception e
-        (reset! !repl nil)))))
+        (reset! !repl nil)
+        (throw e)))))
 
 (defn stop-nrepl! []
   (let [{:keys [server] :as repl} @!repl]
