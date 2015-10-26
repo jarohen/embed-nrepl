@@ -7,7 +7,7 @@
 
   :dependencies [[org.clojure/clojure "1.7.0"]
 
-                 [org.clojure/tools.nrepl "0.2.10"]
+                 [org.clojure/tools.nrepl "0.2.11"]
                  [cider/cider-nrepl "0.9.1"]
                  [refactor-nrepl "1.0.5"]
 
