@@ -1,5 +1,9 @@
 * Changelog
 ** 0.1.x
+*** 0.1.6
+
+Bumping tools.nrepl dep - thanks yet again @cichli :)
+
 *** 0.1.5
 
 Fixing bug whereby failure to start an nREPL server was squashed.
