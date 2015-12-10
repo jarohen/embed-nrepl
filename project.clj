@@ -9,6 +9,6 @@
 
                  [org.clojure/tools.nrepl "0.2.12"]
                  [cider/cider-nrepl "0.10.0"]
-                 [refactor-nrepl "1.0.5"]
+                 [refactor-nrepl "1.2.0"]
 
                  [org.clojure/tools.logging "0.3.1"]])
