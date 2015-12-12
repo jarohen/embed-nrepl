@@ -1,5 +1,9 @@
 * Changelog
 ** 0.1.x
+*** 0.1.7
+
+Bumped cider-nrepl dep to 0.10.0 and refactor-nrepl dep to 1.2.0
+
 *** 0.1.6
 
 Bumping tools.nrepl dep - thanks yet again @cichli :)
